@@ -1,0 +1,113 @@
+@mixin stage {
+  position: absolute;
+  left: -999em;
+}
+
+@mixin unstage {
+  position: static;
+  left: auto;
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}
+
+@mixin bp-large {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin bp-medium {
+  @media only screen and (max-width: 720px) {
+    @content;
+  }
+}
+
+@mixin bp-small {
+  @media only screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin background-gradient($direction, $color-stops...) {
+  // Direction has been omitted and happens to be a color-stop
+
+  background: -webkit-gradient(linear, left top, left bottom, $color-stops);
+  background: -webkit-linear-gradient(top, $color-stops);
+  background: linear-gradient(to bottom, $color-stops);
+}
+
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+        @content;
+    }
+
+    &:-moz-placeholder { /* Firefox 18- */
+        @content;
+    }
+
+    &::-moz-placeholder {  /* Firefox 19+ */
+        @content;
+    }
+
+    &:-ms-input-placeholder {
+        @content;
+    }
+}
+
+.animate {
+  @include transition(all, 0.3s, ease);
+  transform: translate(0, 0);
+  @include opacity(1);
+}
+
+.animate--left {
+  transform: translateX(100px);
+  @include opacity(0);
+}
+
+.animate--from-bottom {
+  transform: translateY(100px);
+  @include opacity(0);
+}
+
+.animate--right {
+  transform: translateX(-100px);
+  @include opacity(0);
+}
+
+.animate--from-left {
+  transform: translateX(100px);
+  @include opacity(0);
+}
+
+.animate--from-right {
+  transform: translateX(-100px);
+  @include opacity(0);
+}
+
+div[class*="animate--"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

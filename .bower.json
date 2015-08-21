@@ -1,0 +1,19 @@
+{
+  "name": "mygulp",
+  "version": "0.0.0",
+  "authors": [
+    "Bogdan Shestakov <bsh@ciklum.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.15",
+    "jquery": "~2.1.3"
+  }
+}

@@ -1,0 +1,40 @@
+$btn-bg: #3498db;
+
+.btn {
+	font-size: 18px;
+	font-weight: bold;
+	font-style: italic;
+	color: #fff;
+	max-width: 370px;
+	display: block;
+	line-height: normal;
+  border-style: solid;
+  border-width: 0;
+  padding: 1em 2rem 1em 2em;
+  vertical-align: middle;
+  text-align: center;
+  margin: 20px auto;
+	transition: all 0.25s ease;
+	background: $btn-bg;
+
+	text-decoration: none;
+  &:hover {
+		background: darken($btn-bg, 10%);
+  	color: #fff;
+  }
+}
+
+.btn--orange {
+	width: 322px;
+	padding: 1.15em 2em 1.175em 2em;
+	background: #ff3800;
+	color: #fff;
+  &:hover {
+		background: #e44f1f;
+  	color: #fff;
+  }
+}
+
+.btn--withspace {
+	margin-bottom: 70px;
+}
